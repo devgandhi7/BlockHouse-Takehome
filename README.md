@@ -3,8 +3,8 @@ This Python script optimizes a Smart Order Router (SOR) to execute a 5,000-share
 
 # Code Structure
 1. Data Loading: Loads l1_day.csv (columns: ts_event, publisher_id, ask_px_00, ask_sz_00), removes duplicates, and groups into 54,537 single-venue snapshots.
-2. Dynamic Threshold Search: Iterates percentiles (1% to 20%, step 0.001) to find the execution threshold that minimizes the difference between SOR cost and the target ($1,113,699).
-3. SOR Strategy: Executes in snapshots with ask prices ≤ threshold, filling remaining shares at a market VWAP (1st percentile of ask prices, ~$222.56).
+2. Dynamic Threshold Search: Iterates percentiles (1% to 20%, step 0.001) to find the execution threshold that minimizes the difference between SOR cost.
+3. SOR Strategy: Executes in snapshots with ask prices ≤ threshold, filling remaining shares at a market VWAP.
 4. Baselines: Implements Best Ask (lowest ask price), TWAP (even distribution), and VWAP (proportional to ask size).
 5. Back-Test: Simulates execution, tracking cumulative costs for all strategies.
 6. Output: Generates a JSON report with costs, average prices, and savings; plots cumulative costs using matplotlib.
